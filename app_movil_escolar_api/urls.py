@@ -8,6 +8,8 @@ from app_movil_escolar_api.views import users
 from app_movil_escolar_api.views import auth
 from app_movil_escolar_api.views import alumnos
 from app_movil_escolar_api.views import maestros
+from app_movil_escolar_api.views import eventos
+
 
 urlpatterns = [
     #Create Admin
@@ -32,8 +34,13 @@ urlpatterns = [
     #Login
         path('login/', auth.CustomAuthToken.as_view()),
     #Logout
-        path('logout/', auth.Logout.as_view())
+        path('logout/', auth.Logout.as_view()),
+        
+    #CrearRegistro
+        path('eventos/', eventos.EventosView.as_view()), 
+        path('lista-eventos/', eventos.EventosAll.as_view()),  
 ]
+
 
 
 if settings.DEBUG:
